@@ -1,11 +1,20 @@
 import React from 'react';
-import Header from './Header';
 
-function App() {
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import Header from './Header';
+import Home from './Home';
+
+const App = () => {
   return (
-    <div className="App">
+    <React.Fragment>
       <Header />
-    </div>
+      <BrowserRouter>
+        <Switch>
+          <Route path='/' component={Home} />
+        </Switch>
+      </BrowserRouter>
+    </React.Fragment>
   );
 }
 

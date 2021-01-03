@@ -20,8 +20,8 @@ const Header = () => {
   const classes = useStyles();
 
   return (
-    <div>
-      <AppBar color='default'>
+    <React.Fragment>
+      <AppBar position='static' color='default'>
         <Toolbar>
           <IconButton edge='start' color='inherit' aria-label='menu'>
             <MenuIcon />
@@ -31,7 +31,7 @@ const Header = () => {
           </Typography>
         </Toolbar>
       </AppBar>
-    </div>
+    </React.Fragment>
   );
 };
 

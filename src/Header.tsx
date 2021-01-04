@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -8,6 +8,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
+import Drawer from '@material-ui/core/Drawer';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import TwitterIcon from '@material-ui/icons/Twitter';
@@ -15,6 +16,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import BookIcon from '@material-ui/icons/Book';
 
 import headerImg from './header.jpg';
+import Menu from './Menu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -34,12 +36,21 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Header = () => {
   const classes = useStyles();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = (menuOpen: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      setMenuOpen(menuOpen);
+    };
 
   return (
     <React.Fragment>
+      <Drawer anchor='left' open={menuOpen} onClose={toggleMenu(false)}>
+        <Menu />
+      </Drawer>
       <AppBar position='static' color='default'>
         <Toolbar>
-          <IconButton edge='start' color='inherit' aria-label='menu'>
+          <IconButton edge='start' color='inherit' aria-label='menu' onClick={toggleMenu(!menuOpen)}>
             <MenuIcon />
           </IconButton>
         </Toolbar>

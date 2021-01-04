@@ -14,6 +14,7 @@ const App = () => {
       <GlobalStyle />
       <MuiThemeProvider theme={theme}>
         <Header />
+        <br />
         <BrowserRouter>
           <Switch>
             <Route path='/' component={Home} />

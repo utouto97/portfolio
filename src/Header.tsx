@@ -56,37 +56,42 @@ const Header = () => {
         </Toolbar>
       </AppBar>
       <Paper className={classes.headerPaper}>
-        <Grid container alignItems='center' justify='center'>
-          <Grid item md={6}>
-            <Typography variant='h3'>
-              Firstname Lastname
-            </Typography>
-            <Typography variant='h5'>
-              bio bio bio bio bio <br />
-              bio bio bio bio bio <br />
-              bio bio bio bio bio <br />
-              bio bio bio bio bio <br />
-              bio bio bio bio bio <br />
-            </Typography>
-            <br />
-            <Link display='block' variant='body2' href='https://twitter.com'>
-              <Grid container direction='row' spacing={1} alignItems='center'>
-                <Grid item><TwitterIcon fontSize='small' /></Grid>
-                <Grid item>@xyzxyz12</Grid>
-              </Grid>
-            </Link>
-            <Link display='block' variant='body2' href='https://github.com'>
-              <Grid container direction='row' spacing={1} alignItems='center'>
-                <Grid item><GitHubIcon fontSize='small' /></Grid>
-                <Grid item>xyzxyz12</Grid>
-              </Grid>
-            </Link>
-            <Link display='block' variant='body2' href='https://qiita.com'>
-              <Grid container direction='row' spacing={1} alignItems='center'>
-                <Grid item><BookIcon fontSize='small' /></Grid>
-                <Grid item>あいうえお</Grid>
-              </Grid>
-            </Link>
+        <Grid container direction='column' spacing={2}>
+          <Grid container item alignItems='center' justify='center'>
+            <Grid item md={6}>
+              <Typography variant='h3'>
+                Firstname Lastname
+              </Typography>
+              <Typography variant='h5'>
+                bio bio bio bio bio <br />
+                bio bio bio bio bio <br />
+                bio bio bio bio bio <br />
+                bio bio bio bio bio <br />
+                bio bio bio bio bio <br />
+              </Typography>
+            </Grid>
+          </Grid>
+          <Grid container item alignItems='center' justify='center'>
+            <Grid item md={5}>
+              <Link display='block' variant='body2' href='https://twitter.com'>
+                <Grid container direction='row' spacing={1} alignItems='center'>
+                  <Grid item><TwitterIcon fontSize='small' /></Grid>
+                  <Grid item>@xyzxyz12</Grid>
+                </Grid>
+              </Link>
+              <Link display='block' variant='body2' href='https://github.com'>
+                <Grid container direction='row' spacing={1} alignItems='center'>
+                  <Grid item><GitHubIcon fontSize='small' /></Grid>
+                  <Grid item>xyzxyz12</Grid>
+                </Grid>
+              </Link>
+              <Link display='block' variant='body2' href='https://qiita.com'>
+                <Grid container direction='row' spacing={1} alignItems='center'>
+                  <Grid item><BookIcon fontSize='small' /></Grid>
+                  <Grid item>あいうえお</Grid>
+                </Grid>
+              </Link>
+            </Grid>
           </Grid>
         </Grid>
       </Paper>

@@ -14,7 +14,7 @@ import headerImg from './header.jpg';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     paper: {
-      marginTop: theme.spacing(4),
+      paddingTop: theme.spacing(4),
       backgroundImage: `url(${headerImg})`,
       backgroundSize: 'cover',
       textAlign: 'center',

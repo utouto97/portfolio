@@ -8,11 +8,13 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
+import GlobalStyle from './globalStyles';
+import theme from './theme';
 import Header from './Header';
 import Home from './Home';
-import theme from './theme';
-import GlobalStyle from './globalStyles';
 import Work from './Work';
+import Skills from './Skills';
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -35,14 +37,11 @@ const App = () => {
     <React.Fragment>
       <GlobalStyle />
       <MuiThemeProvider theme={theme}>
-        <Header />
-        <br />
-        <Grid container alignItems='center' justify='center'>
-          <Grid item md={6}>
-            <Home />
-            <br />
-            <Work />
-          </Grid>
+        <Grid container direction='column' spacing={4}>
+          <Grid item> <Header /> </Grid>
+          <Grid item> <Home /> </Grid>
+          <Grid item> <Work /> </Grid>
+          <Grid item> <Skills /> </Grid>
         </Grid>
         <IconButton className={classes.totop} onClick={scrollTop}>
           <ArrowUpwardIcon />

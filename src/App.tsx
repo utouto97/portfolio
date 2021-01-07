@@ -4,14 +4,12 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 import GlobalStyle from './globalStyles';
 import theme from './theme';
 import Header from './Header';
-import Home from './Home';
 import Work from './Work';
 import Skills from './Skills';
 
@@ -39,9 +37,8 @@ const App = () => {
       <MuiThemeProvider theme={theme}>
         <Grid container direction='column' spacing={4}>
           <Grid item> <Header /> </Grid>
-          <Grid item> <Home /> </Grid>
-          <Grid item> <Work /> </Grid>
           <Grid item> <Skills /> </Grid>
+          <Grid item> <Work /> </Grid>
         </Grid>
         <IconButton className={classes.totop} onClick={scrollTop}>
           <ArrowUpwardIcon />

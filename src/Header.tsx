@@ -1,101 +1,90 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Link from '@material-ui/core/Link';
-import Drawer from '@material-ui/core/Drawer';
-
-import MenuIcon from '@material-ui/icons/Menu';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import BookIcon from '@material-ui/icons/Book';
 
 import headerImg from './header.jpg';
-import Menu from './Menu';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    title: {
-      flexGrow: 1,
+    paper: {
+      marginTop: theme.spacing(4),
+      backgroundImage: `url(${headerImg})`,
+      backgroundSize: 'cover',
       textAlign: 'center',
     },
-    headerPaper: {
-      backgroundImage: `url(${headerImg})`,
-      backgroundSize: 'cover'
+    twittericon: {
+      margin: theme.spacing(1),
+      color: '#FFFFFF',
+      backgroundColor: '#1DA1F2',
+      "&:hover": {
+        color: '#1DA1F2'
+      }
     },
-    noDecoration: {
-      textDecoration: 'none'
-    }
+    githubicon: {
+      margin: theme.spacing(1),
+      color: '#FFFFFF',
+      backgroundColor: '#000000',
+      "&:hover": {
+        color: '#000000'
+      }
+    },
+    blogicon: {
+      margin: theme.spacing(1),
+      color: '#FFFFFF',
+      backgroundColor: '#2DBE60',
+      "&:hover": {
+        color: '#2DBE60'
+      }
+    },
   })
 );
 
 const Header = () => {
   const classes = useStyles();
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = (menuOpen: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
-      setMenuOpen(menuOpen);
-    };
 
   return (
-    <React.Fragment>
-      <Drawer anchor='left' open={menuOpen} onClose={toggleMenu(false)}>
-        <Menu />
-      </Drawer>
-      <AppBar position='static' color='default'>
-        <Toolbar>
-          <IconButton edge='start' color='inherit' aria-label='menu' onClick={toggleMenu(!menuOpen)}>
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
-      <Paper className={classes.headerPaper}>
-        <Grid container direction='column' spacing={2}>
-          <Grid container item alignItems='center' justify='center'>
-            <Grid item md={6}>
-              <Typography variant='h3'>
-                Firstname Lastname
-              </Typography>
-              <Typography variant='h5'>
-                bio bio bio bio bio <br />
-                bio bio bio bio bio <br />
-                bio bio bio bio bio <br />
-                bio bio bio bio bio <br />
-                bio bio bio bio bio <br />
-              </Typography>
-            </Grid>
-          </Grid>
-          <Grid container item alignItems='center' justify='center'>
-            <Grid item md={5}>
-              <Link display='block' variant='body2' href='https://twitter.com'>
-                <Grid container direction='row' spacing={1} alignItems='center'>
-                  <Grid item><TwitterIcon fontSize='small' /></Grid>
-                  <Grid item>@xyzxyz12</Grid>
-                </Grid>
-              </Link>
-              <Link display='block' variant='body2' href='https://github.com'>
-                <Grid container direction='row' spacing={1} alignItems='center'>
-                  <Grid item><GitHubIcon fontSize='small' /></Grid>
-                  <Grid item>xyzxyz12</Grid>
-                </Grid>
-              </Link>
-              <Link display='block' variant='body2' href='https://qiita.com'>
-                <Grid container direction='row' spacing={1} alignItems='center'>
-                  <Grid item><BookIcon fontSize='small' /></Grid>
-                  <Grid item>あいうえお</Grid>
-                </Grid>
-              </Link>
-            </Grid>
+    <Paper className={classes.paper}>
+      <Grid container direction='column' spacing={2}>
+        <Grid container item justify='center'>
+          <Grid item>
+            <Typography variant='h2'>
+              First Last
+            </Typography>
           </Grid>
         </Grid>
-      </Paper>
-    </React.Fragment >
+        <Grid container item justify='center'>
+          <Grid item>
+            <Typography variant='h5'>
+              bio bio bio bio bio <br />
+              bio bio bio bio bio <br />
+              bio bio bio bio bio <br />
+              bio bio bio bio bio <br />
+              bio bio bio bio bio <br />
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container item justify='center'>
+          <Grid item>
+            <IconButton className={classes.twittericon} component='a' href='https://twitter.com'>
+              <TwitterIcon />
+            </IconButton>
+            <IconButton className={classes.githubicon} component='a' href='https://twitter.com'>
+              <GitHubIcon />
+            </IconButton>
+            <IconButton className={classes.blogicon} component='a' href='https://twitter.com'>
+              <BookIcon />
+            </IconButton>
+          </Grid>
+        </Grid>
+      </Grid>
+    </Paper >
   );
 };
 

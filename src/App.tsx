@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 
 import Header from './Header';
 import Home from './Home';
 import theme from './theme';
 import GlobalStyle from './globalStyles';
+import Work from './Work';
 
 const App = () => {
   return (
@@ -15,11 +16,13 @@ const App = () => {
       <MuiThemeProvider theme={theme}>
         <Header />
         <br />
-        <BrowserRouter>
-          <Switch>
-            <Route path='/' component={Home} />
-          </Switch>
-        </BrowserRouter>
+        <Grid container alignItems='center' justify='center'>
+          <Grid item md={6}>
+            <Home />
+            <br />
+            <Work />
+          </Grid>
+        </Grid>
       </MuiThemeProvider>
     </React.Fragment>
   );

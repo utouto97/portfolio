@@ -9,24 +9,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Avater from '@material-ui/core/Avatar';
 import WorkIcon from '@material-ui/icons/Work';
 
-const skills = [
-  {
-    pri: 'C++',
-    sec: 'Competitive Programming'
-  },
-  {
-    pri: 'Python',
-    sec: 'Research for bachelor and master, Neural Network (Keras or Pytorch)'
-  },
-  {
-    pri: '基本情報技術者試験',
-    sec: '2016年12月 合格'
-  },
-  {
-    pri: 'AtCoder',
-    sec: 'Highest: Blue, Current: 1450'
-  }
-];
+const skills = require('./skill.json');
 
 const Skills = () => {
   return (
@@ -41,7 +24,7 @@ const Skills = () => {
       <Grid container item justify='center'>
         <Grid item>
           <List>
-            {skills.map((skill, i) => {
+            {skills.map((skill: any, i: number) => {
               return (<ListItem key={i}>
                 <ListItemAvatar>
                   <Avater>

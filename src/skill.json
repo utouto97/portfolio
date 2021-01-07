@@ -1,14 +1,21 @@
 [
   {
     "pri": "C++",
-    "sec": "Use for competitive programming"
+    "sec": "Use for competitive programming",
+    "icon": "code"
   },
   {
     "pri": "基本情報技術者試験",
-    "sec": "合格"
+    "sec": "合格",
+    "icon": "verified"
   },
   {
     "pri": "Python",
-    "sec": "Research for bachelor and master, Neural Network (Keras or Pytorch)"
+    "sec": "Research for bachelor and master, Neural Network (Keras or Pytorch)",
+    "icon": "code"
+  },
+  {
+    "pri": "仕事上のスキル",
+    "sec": "なんだろう"
   }
 ]

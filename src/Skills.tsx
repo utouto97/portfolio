@@ -7,9 +7,32 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avater from '@material-ui/core/Avatar';
+
 import WorkIcon from '@material-ui/icons/Work';
+import CodeIcon from '@material-ui/icons/Code';
+import VerifiedUserOutlinedIcon from '@material-ui/icons/VerifiedUserOutlined';
 
 const skills = require('./skill.json');
+
+type SkillType = {
+  pri: string,
+  sec: string,
+  icon: string
+};
+
+type IconProps = {
+  type: string
+};
+
+const Icon = (props: IconProps) => {
+  switch (props.type) {
+    case "code":
+      return <CodeIcon />
+    case "verified":
+      return <VerifiedUserOutlinedIcon />
+  }
+  return <WorkIcon />
+};
 
 const Skills = () => {
   return (
@@ -24,11 +47,11 @@ const Skills = () => {
       <Grid container item justify='center'>
         <Grid item>
           <List>
-            {skills.map((skill: any, i: number) => {
+            {skills.map((skill: SkillType, i: number) => {
               return (<ListItem key={i}>
                 <ListItemAvatar>
                   <Avater>
-                    <WorkIcon />
+                    <Icon type={skill.icon} />
                   </Avater>
                 </ListItemAvatar>
                 <ListItemText primary={skill.pri} secondary={skill.sec} />

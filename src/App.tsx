@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -31,6 +31,19 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const [scroll, setScroll] = useState(0);
+
+  const scrollListener = () => {
+    setScroll(Math.max(
+      window.pageYOffset,
+      document.documentElement.scrollTop,
+      document.body.scrollTop));
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollListener);
+  }, []);
+
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -40,9 +53,11 @@ const App = () => {
           <Grid item> <Skills /> </Grid>
           <Grid item> <Work /> </Grid>
         </Grid>
-        <IconButton className={classes.totop} onClick={scrollTop}>
-          <ArrowUpwardIcon />
-        </IconButton>
+        {(scroll > 0) && (
+          <IconButton className={classes.totop} onClick={scrollTop}>
+            <ArrowUpwardIcon />
+          </IconButton>
+        )}
       </MuiThemeProvider>
     </React.Fragment>
   );

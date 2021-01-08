@@ -75,10 +75,10 @@ const Header = () => {
             <IconButton className={classes.twittericon} component='a' href='https://twitter.com'>
               <TwitterIcon />
             </IconButton>
-            <IconButton className={classes.githubicon} component='a' href='https://twitter.com'>
+            <IconButton className={classes.githubicon} component='a' href='https://github.com'>
               <GitHubIcon />
             </IconButton>
-            <IconButton className={classes.blogicon} component='a' href='https://twitter.com'>
+            <IconButton className={classes.blogicon} component='a' href='https://qiita.com'>
               <BookIcon />
             </IconButton>
           </Grid>
